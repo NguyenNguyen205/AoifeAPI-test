@@ -8,7 +8,11 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({extended:true}))
 let token = process.env.TOKEN
-app.get('/',async (req, res) => {
+app.get("/", (req, res) => {
+    res.send("Vercel is working !!!")
+    return;
+})
+app.get('/detail',async (req, res) => {
     let config = {
         headers: {
             "Token": token,
@@ -22,7 +26,9 @@ app.get('/',async (req, res) => {
 
 })
 
+
 const port = process.env.PORT || 8080
+
 app.listen(port, () => {
     console.log(`Server is listening on ${port}`)
 })
