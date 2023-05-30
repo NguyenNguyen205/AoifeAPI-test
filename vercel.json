@@ -8,8 +8,12 @@
     ],
     "routes": [
         {
-            "src": "/helloworld",
+            "src": "/",
             "dest": "/"
+        },
+        {
+            "src": "/detail",
+            "dest": "/detail"
         }
     ]
 }
