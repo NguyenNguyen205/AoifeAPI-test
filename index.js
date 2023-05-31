@@ -12,6 +12,26 @@ app.get("/", (req, res) => {
     res.send("Vercel is working !!!")
     return;
 })
+
+app.get("/api", (req, res) => {
+    res.send("Use post request instead");
+    return;
+})
+app.post("/api", async (req, res) => {
+    let token = req.headers.token;
+    let url = req.body.url;
+    let config = {
+        headers: {
+            "Token": token,
+            "Content-Type": "text/plain"
+        }
+    }
+    let result = await axios.get(url, config);
+    res.json(result.data)
+    return;
+
+})
+
 app.get('/detail',async (req, res) => {
     let config = {
         headers: {
